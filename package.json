@@ -1,0 +1,30 @@
+{
+  "name": "gyankriti_lms",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "annant",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.279.1",
+    "body-parser": "latest",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "node-cmd": "^3.0.0",
+    "popups": "^1.1.3",
+    "public-ip": "^2.4.0",
+    "request": "^2.87.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annant05/ERP_gyankriti.git"
+  },
+  "bugs": {
+    "url": "https://github.com/annant05/ERP_gyankriti/issues"
+  },
+  "homepage": "https://github.com/annant05/ERP_gyankriti#readme",
+  "description": "Node Js application for Gyankriti LMS"
+}
