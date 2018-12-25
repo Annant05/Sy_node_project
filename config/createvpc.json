@@ -1,0 +1,455 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+
+  "Resources": {
+
+    "SynergyVPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "InstanceTenancy": "default",
+        "EnableDnsSupport": "true",
+        "EnableDnsHostnames": "false",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergyVPC"
+          }
+        ]
+      }
+    },
+    "SynergyPrivateSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.2.0/24",
+        "AvailabilityZone": "ap-southeast-1a",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergyPrivateSubnet"
+          }
+        ]
+      }
+    },
+    "PrivateSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.4.0/24",
+        "AvailabilityZone": "ap-southeast-1b",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PrivateSubnet"
+          }
+        ]
+      }
+    },
+    "PublicSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.3.0/24",
+        "AvailabilityZone": "ap-southeast-1b",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PublicSubnet"
+          }
+        ]
+      }
+    },
+    "SynergyPublicSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.1.0/24",
+        "AvailabilityZone": "ap-southeast-1a",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergyPublicSubnet"
+          }
+        ]
+      }
+    },
+    "SynergyInternetGateway": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergyInternetGateway"
+          }
+        ]
+      }
+    },
+    "SynergyVpcDHCP": {
+      "Type": "AWS::EC2::DHCPOptions",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergyVpcDHCP"
+          }
+        ],
+        "DomainName": "ap-southeast-1.compute.internal",
+        "DomainNameServers": [
+          "AmazonProvidedDNS"
+        ]
+      }
+    },
+    "PrivateRouteTable": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Network",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "PrivateRouteTable"
+          }
+        ]
+      }
+    },
+    "PublicRouteTable": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Network",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "PublicRouteTable"
+          }
+        ]
+      }
+    },
+    "sgAllowSSH": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Let it use SSH",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "AllowSSH"
+          }
+        ]
+      }
+    },
+    "sgAllowsHTTPandHTTPS": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Allows Http and Https traffic",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "AllowWebAccess"
+          }
+        ]
+      }
+    },
+    "sgSSHandDatabaseSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Database access",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        }
+      }
+    },
+    "sgdefault": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "default VPC security group",
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "DefaultSG"
+          }
+        ]
+      }
+    },
+    "SynergySingleNACL": {
+      "Type": "AWS::EC2::NetworkAcl",
+      "Properties": {
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SynergySingleNACL"
+          }
+        ]
+      }
+    },
+    "acl1": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": "true",
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "SynergySingleNACL"
+        }
+      }
+    },
+    "acl2": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "CidrBlock": "0.0.0.0/0",
+        "Protocol": "-1",
+        "RuleAction": "allow",
+        "RuleNumber": "100",
+        "NetworkAclId": {
+          "Ref": "SynergySingleNACL"
+        }
+      }
+    },
+    "gw1": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "InternetGatewayId": {
+          "Ref": "SynergyInternetGateway"
+        }
+      }
+    },
+    "subnetroute1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "PrivateSubnet"
+        }
+      }
+    },
+    "subnetroute2": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SynergyPrivateSubnet"
+        }
+      }
+    },
+    "subnetroute4": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SynergyPublicSubnet"
+        }
+      }
+    },
+    "subnetroute5": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "PublicSubnet"
+        }
+      }
+    },
+    "route1": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        },
+        "GatewayId": {
+          "Ref": "SynergyInternetGateway"
+        }
+      },
+      "DependsOn": "gw1"
+    },
+    "route2": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        },
+        "GatewayId": {
+          "Ref": "SynergyInternetGateway"
+        }
+      },
+      "DependsOn": "gw1"
+    },
+    "dchpassoc1": {
+      "Type": "AWS::EC2::VPCDHCPOptionsAssociation",
+      "Properties": {
+        "VpcId": {
+          "Ref": "SynergyVPC"
+        },
+        "DhcpOptionsId": {
+          "Ref": "SynergyVpcDHCP"
+        }
+      }
+    },
+    "ingress1": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAllowSSH"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress2": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAllowsHTTPandHTTPS"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress3": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAllowsHTTPandHTTPS"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "443",
+        "ToPort": "443",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress4": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgSSHandDatabaseSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress5": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgSSHandDatabaseSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3306",
+        "ToPort": "3306",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "ingress6": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "-1",
+        "SourceSecurityGroupId": {
+          "Ref": "sgdefault"
+        },
+        "SourceSecurityGroupOwnerId": "805746249177"
+      }
+    },
+    "egress1": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAllowSSH"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress2": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgAllowsHTTPandHTTPS"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress3": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgSSHandDatabaseSG"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    },
+    "egress4": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "sgdefault"
+        },
+        "IpProtocol": "-1",
+        "CidrIp": "0.0.0.0/0"
+      }
+    }
+  },
+
+  "Outputs": {
+    "VPCID" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    }
+  },
+
+  "Description": "Synergy template with 2 web servers and 1 db server  in a vpc"
+}
