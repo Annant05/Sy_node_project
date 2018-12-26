@@ -43,6 +43,7 @@
   "Resources": {
 
     "ALBListener" : {
+      "DependsOn":  ["SynergyPublicSubnet","sgAllowsHTTPandHTTPS","SynergyVPC","PublicSubnet","WebServer1","WebServer2","DbServer","ApplicationLoadBalancerELB"],
       "Type" : "AWS::ElasticLoadBalancingV2::Listener",
       "Properties" : {
         "DefaultActions" : [{
@@ -55,6 +56,7 @@
       }
     },
     "ApplicationLoadBalancerELB" : {
+      "DependsOn":  ["SynergyPublicSubnet","sgAllowsHTTPandHTTPS","SynergyVPC","PublicSubnet","WebServer1","WebServer2","DbServer","ALBTargetGroup"],
       "Type" : "AWS::ElasticLoadBalancingV2::LoadBalancer",
       "Properties" : {
         "Scheme" : "internet-facing",
@@ -63,6 +65,7 @@
       }
     },
     "ALBTargetGroup" : {
+      "DependsOn":  ["SynergyPublicSubnet","sgAllowsHTTPandHTTPS","SynergyVPC","PublicSubnet","WebServer1","WebServer2","DbServer"],
       "Type" : "AWS::ElasticLoadBalancingV2::TargetGroup",
       "Properties" : {
         "HealthCheckIntervalSeconds" : 60,
