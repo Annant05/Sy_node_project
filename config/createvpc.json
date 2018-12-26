@@ -447,10 +447,46 @@
   },
 
   "Outputs": {
-    "VPCID" : {
+    "VpcId" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VpcCIDR" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
+      "Description": "The VPC ID",
+      "Value" : { "Ref" : "SynergyVPC" }
+    },
+
+    "VPC" : {
       "Description": "The VPC ID",
       "Value" : { "Ref" : "SynergyVPC" }
     }
+
   },
 
   "Description": "Synergy template with 2 web servers and 1 db server  in a vpc"

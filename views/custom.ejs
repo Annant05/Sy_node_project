@@ -11,7 +11,7 @@
 
     <!-- Title Page-->
     <title>Synergy</title>
-    <%include headcssandvendor.ejs%>
+    <% include headcssandvendor.ejs %>
 
     <!--&lt;!&ndash; Fontfaces CSS&ndash;&gt;-->
     <!--<link href="css/font-face.css" rel="stylesheet" media="all">-->
@@ -33,155 +33,154 @@
 
     <!--&lt;!&ndash; Main CSS&ndash;&gt;-->
     <!--<link href="css/theme.css" rel="stylesheet" media="all">-->
-     <!--<script src="js/wow.min.js"></script>-->
-              <!--<script>-->
-              <!--new WOW().init();-->
-              <!--</script>-->
+    <!--<script src="js/wow.min.js"></script>-->
+    <!--<script>-->
+    <!--new WOW().init();-->
+    <!--</script>-->
 
 </head>
 
 <body class="animsition">
-    <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="/index">
-                            <img src="/images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="/index">
+                        <img src="/images/icon/logo.png" alt="CoolAdmin"/>
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="/index">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-users"></i>Collaborators</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-bar-chart"></i>Monitor</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="far fa-clock-o"></i>Alarms</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-life-ring"></i>Support</a>
-                        </li>
-                    </ul>
-                </div>
+        </div>
+        <nav class="navbar-mobile">
+            <div class="container-fluid">
+                <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                        <a class="js-arrow" href="/index">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-users"></i>Collaborators</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-bar-chart"></i>Monitor</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="far fa-clock-o"></i>Alarms</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-life-ring"></i>Support</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
+        <div class="logo">
+            <a href="/index">
+                <img src="/images/icon/logo.png" alt="Cool Admin"/>
+            </a>
+        </div>
+        <div class="menu-sidebar__content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li class="has-sub">
+                        <a class="js-arrow" href="/index">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-users"></i>Collaborators</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-bar-chart"></i>Monitor</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="far fa-clock-o"></i>Alarms</a>
+                    </li>
+                    <li>
+                        <a href="/coming">
+                            <i class="fas fa-life-ring"></i>Support</a>
+                    </li>
+                </ul>
             </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
+        </div>
+    </aside>
+    <!-- END MENU SIDEBAR-->
 
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="/index">
-                    <img src="/images/icon/logo.png" alt="Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="/index">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-users"></i>Collaborators</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-bar-chart"></i>Monitor</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="far fa-clock-o"></i>Alarms</a>
-                        </li>
-                        <li>
-                            <a href="/coming">
-                                <i class="fas fa-life-ring"></i>Support</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="form-header" action="" method="POST">
+                            <input class="au-input au-input--xl" type="text" name="search"
+                                   placeholder="What do you want to do?"/>
+                            <button class="au-btn--submit" type="submit">
+                                <i class="zmdi zmdi-search"></i>
+                            </button>
+                        </form>
+                        <div class="header-button">
+                            <div class="noti-wrap">
 
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="What do you want to do?" />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>
-                            <div class="header-button">
-                                <div class="noti-wrap">
-                                    
-                                    
-                                    
-                                </div>
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="/images/icon/avatar-01.jpg" alt="John Doe" />
+
+                            </div>
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="image">
+                                        <img src="/images/icon/avatar-01.jpg" alt="John Doe"/>
+                                    </div>
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">Ankit C.</a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="/images/icon/avatar-01.jpg" alt="Ankit"/>
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#">Ankit Choudhary</a>
+                                                </h5>
+                                                <span class="email">c.ankit1997@gmail.com</span>
+                                            </div>
                                         </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Ankit C.</a>
+                                        <div class="account-dropdown__body">
+                                            <div class="account-dropdown__item">
+                                                <a href="/coming">
+                                                    <i class="zmdi zmdi-account"></i>Account</a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="/coming">
+                                                    <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="/coming">
+                                                    <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                            </div>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="/images/icon/avatar-01.jpg" alt="Ankit" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Ankit Choudhary</a>
-                                                    </h5>
-                                                    <span class="email">c.ankit1997@gmail.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="/coming">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="/coming">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="/coming">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="/login">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="/login">
+                                                <i class="zmdi zmdi-power"></i>Logout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -189,180 +188,218 @@
                         </div>
                     </div>
                 </div>
-            </header>
-            <!-- HEADER DESKTOP-->
+            </div>
+        </header>
+        <!-- HEADER DESKTOP-->
 
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="col-lg-12 col-md-12">
-                                <h2 class="title-1 m-b-25 animated fadeInDown">Your Environments</h2>
-                                <div class="row">
-                                   <div class="col-md-12">
-                                     <div class="row">
-                                     <div class="col-lg-12 shadow p-3 mb-5 bg-white rounded">
-                                    	<div class="card-body">
-										<div class="default-tab">
-											<nav>
-												<div class="nav nav-tabs" id="nav-tab" role="tablist">
-													<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
-													 aria-selected="true">VPC</a>
-													<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-													 aria-selected="false">Server</a>
-												</div>
-											</nav>
-											<div class="tab-content pl-3 pt-2" id="nav-tabContent">
-                                                <br>
-												<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                                    <!----------------------------->
-                                                    
-                                                       <form action="" method="post" class="form-horizontal">
-                                                                    <div class="row form-group">
-                                                                        <div class="col col-md-3">
-                                                                            <label for="hf-email" class=" form-control-label">VPC</label>
-                                                                        </div>
-                                                                        <div class="col-12 col-md-9">
-                                                                            <input type="name" id="hf-email" name="hf-email" placeholder="Enter VPC Name" class="form-control">    
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row form-group">
-                                                                        <div class="col col-md-3">
-                                                                            <label for="hf-email" class=" form-control-label">Public Subnet</label>
-                                                                        </div>
-                                                                        <div class="col-12 col-md-9">
-                                                                            <input type="name" id="hf-email" name="hf-email" placeholder="Enter no. of Public Subnets" class="form-control">    
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row form-group">
-                                                                        <div class="col col-md-3">
-                                                                            <p>Add Private Subnets?</p>
-                                                                        </div>
-                                                                        <div class="col-12 col-md-9">
-                                                                          <label class="switch switch-3d switch-primary mr-2">
-                                                                          <input type="checkbox" class="switch-input" id="chkSubnet" Unchecked>
-                                                                          <span class="switch-label"></span>
-                                                                          <span class="switch-handle"></span>
-                                                                        </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row form-group" id="pvtSubnet">
-                                                                        <div class="col col-md-3">
-                                                                            <label for="hf-email" class=" form-control-label">Private Subnet</label>
-                                                                        </div>
-                                                                        <div class="col-12 col-md-9">
-                                                                            <input type="name" id="hf-email" name="hf-email" placeholder="Enter no. of Private Subnets" class="form-control">    
-                                                                        </div>
-                                                                    </div>
-                                                           <a href="#nav-profile" class="float-right"><button class="btn btn-primary float-right">Next</button></a>
-                                                            </form>          
-                                                       
-                                                    <!----------------------------->
-													
-												</div>
-												<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-													<div class="row form-group">
-                                                            <div class="col col-md-3">
-                                                            <label for="hf-email" class=" form-control-label">No. of Instances</label>
-                                                            </div>
-                                                            <div class="col-12 col-md-9">
-                                                            <input type="name" id="hf-email" name="hf-email" placeholder="Enter No. of Instances" class="form-control">    
-                                                         </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Memory</label>
-                                                </div>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check">
-                                                        <div class="checkbox">
-                                                            <label for="checkbox1" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="0.5 GB" class="form-check-input">0.5 GB
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label for="checkbox2" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox2" name="checkbox2" value="1 GB" class="form-check-input"> 1 GB
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label for="checkbox3" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox3" name="checkbox3" value="2 GB" class="form-check-input"> 2 GB
-                                                            </label>
-                                                        </div>
-                                                        <div class="checkbox">
-                                                            <label for="checkbox4" class="form-check-label ">
-                                                                <input type="checkbox" id="checkbox4" name="checkbox4" value="4 GB" class="form-check-input"> 4 GB
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                    <div class="row form-group">
-                                                            <div class="col col-md-3">
-                                                            <label for="hf-email" class=" form-control-label">Storage</label>
-                                                            </div>
-                                                            <div class="col-12 col-md-9">
-                                                            <input type="name" id="hf-email" name="hf-email" placeholder="Enter amount of storage you want" class="form-control">    
-                                                         </div>
-                                                    </div>
-                                                    <a href="#nav-profile" class="float-right"><button class="btn btn-primary float-right">Next</button></a>
-												</div>
-												
-											</div>
-
-										</div>
-									</div>
-                               
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    <!--- Action Second Section End (More Functionality can be added here, if we extend this project)---->
-                                               
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="col-lg-12 col-md-12">
+                        <h2 class="title-1 m-b-25 animated fadeInDown">Your Environments</h2>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Developed by Team Clustroit | TCS Inframind Contest</p>
+                                <div class="row">
+                                    <div class="col-lg-12 shadow p-3 mb-5 bg-white rounded">
+                                        <div class="card-body">
+                                            <div class="default-tab">
+                                                <nav>
+                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                        <a class="nav-item nav-link active" id="nav-home-tab"
+                                                           data-toggle="tab" href="#nav-home" role="tab"
+                                                           aria-controls="nav-home"
+                                                           aria-selected="true">VPC</a>
+                                                        <a class="nav-item nav-link" id="nav-profile-tab"
+                                                           data-toggle="tab" href="#nav-profile" role="tab"
+                                                           aria-controls="nav-profile"
+                                                           aria-selected="false">Server</a>
+                                                    </div>
+                                                </nav>
+                                                <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                                                    <br>
+                                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                         aria-labelledby="nav-home-tab">
+                                                        <!----------------------------->
+
+                                                        <form action="" method="post" class="form-horizontal">
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3">
+                                                                    <label for="hf-email" class=" form-control-label">VPC</label>
+                                                                </div>
+                                                                <div class="col-12 col-md-9">
+                                                                    <input type="name" id="hf-email" name="hf-email"
+                                                                           placeholder="Enter VPC Name"
+                                                                           class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3">
+                                                                    <label for="hf-email" class=" form-control-label">Public
+                                                                        Subnet</label>
+                                                                </div>
+                                                                <div class="col-12 col-md-9">
+                                                                    <input type="name" id="hf-email" name="hf-email"
+                                                                           placeholder="Enter no. of Public Subnets"
+                                                                           class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group">
+                                                                <div class="col col-md-3">
+                                                                    <p>Add Private Subnets?</p>
+                                                                </div>
+                                                                <div class="col-12 col-md-9">
+                                                                    <label class="switch switch-3d switch-primary mr-2">
+                                                                        <input type="radio" class="switch-input"
+                                                                               id="chkSubnet" Unchecked>
+                                                                        <span class="switch-label"></span>
+                                                                        <span class="switch-handle"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row form-group" id="pvtSubnet">
+                                                                <div class="col col-md-3">
+                                                                    <label for="hf-email" class=" form-control-label">Private
+                                                                        Subnet</label>
+                                                                </div>
+                                                                <div class="col-12 col-md-9">
+                                                                    <input type="name" id="hf-email" name="hf-email"
+                                                                           placeholder="Enter no. of Private Subnets"
+                                                                           class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <a href="#nav-profile" class="float-right">
+                                                                <button class="btn btn-primary float-right">Next
+                                                                </button>
+                                                            </a>
+                                                        </form>
+
+                                                        <!----------------------------->
+
+                                                    </div>
+                                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                         aria-labelledby="nav-profile-tab">
+                                                        <div class="row form-group">
+                                                            <div class="col col-md-3">
+                                                                <label for="hf-email" class=" form-control-label">No. of
+                                                                    Instances</label>
+                                                            </div>
+                                                            <div class="col-12 col-md-9">
+                                                                <input type="name" id="hf-email" name="hf-email"
+                                                                       placeholder="Enter No. of Instances"
+                                                                       class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row form-group">
+                                                            <div class="col col-md-3">
+                                                                <label class=" form-control-label">Memory</label>
+                                                            </div>
+                                                            <div class="col col-md-9">
+                                                                <div class="form-check">
+                                                                    <div class="checkbox">
+                                                                        <label for="checkbox1"
+                                                                               class="form-check-label ">
+                                                                            <input type="checkbox" id="checkbox1"
+                                                                                   name="checkbox1" value="0.5 GB"
+                                                                                   class="form-check-input">0.5 GB
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label for="checkbox2"
+                                                                               class="form-check-label ">
+                                                                            <input type="checkbox" id="checkbox2"
+                                                                                   name="checkbox2" value="1 GB"
+                                                                                   class="form-check-input"> 1 GB
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label for="checkbox3"
+                                                                               class="form-check-label ">
+                                                                            <input type="checkbox" id="checkbox3"
+                                                                                   name="checkbox3" value="2 GB"
+                                                                                   class="form-check-input"> 2 GB
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label for="checkbox4"
+                                                                               class="form-check-label ">
+                                                                            <input type="checkbox" id="checkbox4"
+                                                                                   name="checkbox4" value="4 GB"
+                                                                                   class="form-check-input"> 4 GB
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row form-group">
+                                                            <div class="col col-md-3">
+                                                                <label for="hf-email" class=" form-control-label">Storage</label>
+                                                            </div>
+                                                            <div class="col-12 col-md-9">
+                                                                <input type="name" id="hf-email" name="hf-email"
+                                                                       placeholder="Enter amount of storage you want"
+                                                                       class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <a href="#nav-profile" class="float-right">
+                                                            <button class="btn btn-primary float-right">Next</button>
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--- Action Second Section End (More Functionality can be added here, if we extend this project)---->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>Developed by Team Clustroit | TCS Inframind Contest</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
-
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
     </div>
 
-    <%include jscriptsbottom.ejs%>
+</div>
 
-    <!--&lt;!&ndash; Jquery JS&ndash;&gt;-->
-    <!--<script src="vendor/jquery-3.2.1.min.js"></script>-->
-    <!--&lt;!&ndash; Bootstrap JS&ndash;&gt;-->
-    <!--<script src="vendor/bootstrap-4.1/popper.min.js"></script>-->
-    <!--<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>-->
-    <!--&lt;!&ndash; Vendor JS       &ndash;&gt;-->
-    <!--<script src="vendor/slick/slick.min.js">-->
-    <!--</script>-->
-    <!--<script src="vendor/wow/wow.min.js"></script>-->
-    <!--<script src="vendor/animsition/animsition.min.js"></script>-->
-    <!--<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">-->
-    <!--</script>-->
-    <!--<script src="vendor/counter-up/jquery.waypoints.min.js"></script>-->
-    <!--<script src="vendor/counter-up/jquery.counterup.min.js">-->
-    <!--</script>-->
-    <!--<script src="vendor/circle-progress/circle-progress.min.js"></script>-->
-    <!--<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>-->
-    <!--<script src="vendor/chartjs/Chart.bundle.min.js"></script>-->
-    <!--<script src="vendor/select2/select2.min.js">-->
-    <!--</script>-->
+<% include jscriptsbottom.ejs %>
 
-    <!-- Main JS-->
-    <script src="/js/main.js"></script>
+<!--&lt;!&ndash; Jquery JS&ndash;&gt;-->
+<!--<script src="vendor/jquery-3.2.1.min.js"></script>-->
+<!--&lt;!&ndash; Bootstrap JS&ndash;&gt;-->
+<!--<script src="vendor/bootstrap-4.1/popper.min.js"></script>-->
+<!--<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>-->
+<!--&lt;!&ndash; Vendor JS       &ndash;&gt;-->
+<!--<script src="vendor/slick/slick.min.js">-->
+<!--</script>-->
+<!--<script src="vendor/wow/wow.min.js"></script>-->
+<!--<script src="vendor/animsition/animsition.min.js"></script>-->
+<!--<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">-->
+<!--</script>-->
+<!--<script src="vendor/counter-up/jquery.waypoints.min.js"></script>-->
+<!--<script src="vendor/counter-up/jquery.counterup.min.js">-->
+<!--</script>-->
+<!--<script src="vendor/circle-progress/circle-progress.min.js"></script>-->
+<!--<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>-->
+<!--<script src="vendor/chartjs/Chart.bundle.min.js"></script>-->
+<!--<script src="vendor/select2/select2.min.js">-->
+<!--</script>-->
+
+<!-- Main JS-->
+<script src="/js/main.js"></script>
 
 </body>
 

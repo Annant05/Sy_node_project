@@ -1,1 +1,33 @@
-{% data %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table of resources</title>
+    <style>
+        table, th, td {
+            border: 1px solid rgba(156, 156, 156, 0.83);
+            border-spacing: 2px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Resource Name</th>
+        <th>Resource Value</th>
+    </tr>
+    <% outdata.forEach( function(output){ %>
+    <tr>
+        <td> <%= output['OutputKey']%></td>
+        <td><%= output['OutputValue']%></td>
+    </tr>
+    <%});%>
+</table>
+
+</body>
+</html>
