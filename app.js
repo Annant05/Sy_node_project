@@ -24,20 +24,20 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {TITLE: "Synergy"});
 });
 
 app.get('/index', function (req, res) {
-    res.render('index');
+    res.render('index', {TITLE: "Synergy"});
 });
 
 
 app.get('/coming', function (req, res) {
-    res.render('coming');
+    res.render('coming', {TITLE: "Synergy"});
 });
 
-app.get('/custom', function (req, res) {
-    res.render('custom');
+app.get('/custom_env', function (req, res) {
+    res.render('custom_env', {TITLE: "Launch Custom Environment"});
 });
 
 
@@ -54,7 +54,7 @@ app.listen(PORT, function (err) {
 console.log('Server-side code running');
 
 app.get('/launchstack', function (req, res) {
-    res.render("launchstack");
+    res.render("launchstack", {TITLE: "Launch Stack"});
 });
 
 app.post('/launchstack', function (req, res) {
@@ -62,16 +62,14 @@ app.post('/launchstack', function (req, res) {
     CFNfile.createSTK(req.body.stackName);
 });
 
-app.get('/tableshow', function (req, res) {
+app.get('/outputs', function (req, res) {
 
-    CFNfile.getStackOutputs(function (data) {
-        // console.log(data);
-        // res.end(JSON.stringify(data));
-        res.render("tableshow", {outdata});
-        // data.forEach(function(element,index) {
-        //       // console.log("element " + index + element);
-        //       console.log("data is : " + element['OutputKey'] + " val : "  + element ['OutputValue']);
-        // });
-    });
+    try {
+        CFNfile.getStackOutputs(function (outdata) {
+            res.render("outputs", {outdata, TITLE: "OUTPUTS"});
+        });
+    } catch (e) {
+        res.send("error");
+    }
 
 });

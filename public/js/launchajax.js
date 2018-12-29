@@ -6,6 +6,7 @@ $(function () {
         const stackName = $("#stackName").val();
         // setInterval(300);
         console.log(stackName);
+        alert("Your stack" + stackName + " has been launched!");
         $.ajax({
             url: '/launchstack',
             method: 'POST',

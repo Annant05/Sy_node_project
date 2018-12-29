@@ -4,7 +4,13 @@
 <!--suppress HtmlRequiredTitleElement -->
 <head>
     <% include partials/head_css.ejs %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid rgba(156, 156, 156, 0.83);
+            border-spacing: 2px;
+            padding: 4px;
+        }
+    </style>
 </head>
 
 <body class="animsition">
@@ -23,21 +29,22 @@
                 <div class="container-fluid">
                     <div class="col-lg-12 col-md-12">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-lg-12 shadow p-3 mb-5 bg-white rounded text-center">
-
-
-                                        <form>
-                                            <label>Input Stack Name:
-                                                <input type="text" id="stackName" name="stackName" required>
-                                            </label>
-                                            <button type="button" id="launchstack"> Launch Stack</button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <table>
+                                <tr>
+                                    <th>Resource Name</th>
+                                    <th>Resource Value</th>
+                                </tr>
+                                <% if(outdata !== null ){
+                                outdata.forEach( function(output){ %>
+                                    <tr>
+                                        <td> <%= output['OutputKey'] %></td>
+                                        <td><%= output['OutputValue'] %></td>
+                                    </tr>
+                                <% });}
+                                else { let str = ' Stack is still being created. Please wait for some time and refresh. ' %>
+                               <p> <%=str%></p>
+                                <% } %>
+                            </table>
                         </div>
                     </div>
 
@@ -59,14 +66,11 @@
 
 </div>
 
-<%include partials/bottom_js_scripts.ejs%>
+<% include partials/bottom_js_scripts.ejs %>
 
 <!-- Main JS-->
 <script src="/js/main.js"></script>
 
-<script src="/js/launchajax.js"></script>
-
 </body>
-
 </html>
 <!-- end document-->

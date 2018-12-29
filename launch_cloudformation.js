@@ -9,7 +9,7 @@ AWS.config.update(awsCredentials);
 // console.log(awsCredentials);
 
 const cloudformation = new AWS.CloudFormation();
-const templateString = JSON.stringify(require("./config/LoadBal2webEc2db2vpc"));
+const templateString = JSON.stringify(require("./config/synergy_enviroment"));
 // console.log(templateString);
 
 // let stackName = "";
@@ -30,31 +30,43 @@ let mainbody = {
         };
         console.log(params);
 
-        // remove comments from below lines when used in producation enviroment. this lines can cause charges.
-        // cloudformation.createStack(params, function (err, data) {
-        //     if (err) console.log(err, err.stack); // an error occurred
-        //     else console.log(data);           // successful response
-        // });
-        // listexp()
+        try {
+            // remove comments from below lines when used in producation enviroment. this lines can cause charges.
+            cloudformation.createStack(params, function (err, data) {
+                if (err) console.log(err, err.stack); // an error occurred
+                else console.log(data);           // successful response
+            });
+        } catch (e) {
+            console.log("Error : " + JSON.stringify(e));
+        }
+
     },
 
     getStackOutputs: function (callback) {
         const params = {
             StackName: mainbody.stackName
         };
-        cloudformation.describeStacks(params, function (err, data) {
+        try {
+            cloudformation.describeStacks(params, function (err, data) {
+                if (err) {
+                    console.log(err, err.stack)
+                    callback(null);
+                }
 
-            if (err) console.log(err, err.stack); // an error occurred
-            else {
-                // console.log(data);
-                // console.log((data['Stacks'][0])['Outputs'][0]);
-                // let temp = JSON.parse(data);
-                // console.log(temp);
-                // noinspection UnnecessaryLocalVariableJS
-                let outputs = (data['Stacks'][0])['Outputs'];
-                callback(outputs);
-            }           // successful response
-        });
+                // an error occurred
+            else
+                {
+                    // noinspection UnnecessaryLocalVariableJS
+                    let outputs = (data['Stacks'][0])['Outputs'];
+                    callback(outputs);
+                }           // successful response
+            });
+        } catch (e) {
+            console.log("Eroor in Describe" + JSON.stringify(e));
+            callback(
+                null
+            );
+        }
     }
 
 

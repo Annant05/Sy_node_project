@@ -724,6 +724,34 @@
       "Value" : { "Ref" : "SynergyVPC" }
     },
 
+    "VpcCIDR" : {
+      "Description": "The VPC ID",
+      "Value": {"Fn::GetAtt": ["SynergyVPC", "CidrBlock"]}
+    },
+
+    "PrivateSubnetID": {
+      "Description": " PrivateSubnetID",
+      "Value": {
+        "Ref": "PrivateSubnet"
+      }
+    },
+    "SynergyPrivateSubnetID": {
+      "Description": "SynergyPrivateSubnetID",
+      "Value": {
+        "Ref": "SynergyPrivateSubnet"
+      }
+    },
+    "SynergyPublicSubnetID": {
+      "Description": "SynergyPublicSubnetID",
+      "Value": {
+        "Ref": "SynergyPublicSubnet"
+      }
+    },
+    "PublicSubnetID": {
+      "Description": "PublicSubnetID",
+      "Value": { "Ref": "PublicSubnet"}
+    },
+
     "WebServer1PublicIP" : {
       "Description": "Public IP of web server 1",
       "Value": { "Fn::Join": ["",["http://",{"Fn::GetAtt": ["WebServer1","PublicIp"]}]]}

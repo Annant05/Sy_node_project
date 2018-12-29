@@ -454,39 +454,31 @@
 
     "VpcCIDR" : {
       "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
+      "Value": {"Fn::GetAtt": ["SynergyVPC", "CidrBlock"]}
     },
 
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    },
-
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    },
-
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    },
-
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    },
-
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    },
-
-    "VPC" : {
-      "Description": "The VPC ID",
-      "Value" : { "Ref" : "SynergyVPC" }
-    }
-
+      "PrivateSubnetID": {
+        "Description": " PrivateSubnetID",
+        "Value": {
+          "Ref": "PrivateSubnet"
+        }
+      },
+      "SynergyPrivateSubnetID": {
+        "Description": "SynergyPrivateSubnetID",
+        "Value": {
+          "Ref": "SynergyPrivateSubnet"
+        }
+      },
+      "SynergyPublicSubnetID": {
+        "Description": "SynergyPublicSubnetID",
+        "Value": {
+          "Ref": "SynergyPublicSubnet"
+        }
+      },
+      "PublicSubnetID": {
+        "Description": "PublicSubnetID",
+        "Value": { "Ref": "PublicSubnet"}
+      }
   },
 
   "Description": "Synergy template with 2 web servers and 1 db server  in a vpc"
