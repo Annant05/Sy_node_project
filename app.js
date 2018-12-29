@@ -24,19 +24,23 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function (req, res) {
+    console.log("app.get renders : INDEX" );
     res.render('index', {TITLE: "Synergy"});
 });
 
 app.get('/index', function (req, res) {
+    console.log("app.get renders : INDEX");
     res.render('index', {TITLE: "Synergy"});
 });
 
 
 app.get('/coming', function (req, res) {
+    console.log("app.get renders : COMING" );
     res.render('coming', {TITLE: "Synergy"});
 });
 
 app.get('/custom_env', function (req, res) {
+    console.log("app.get renders : CUSTOM_ENV");
     res.render('custom_env', {TITLE: "Launch Custom Environment"});
 });
 
@@ -54,16 +58,18 @@ app.listen(PORT, function (err) {
 console.log('Server-side code running');
 
 app.get('/launchstack', function (req, res) {
+    console.log("app.get renders : LAUNCHSTACK");
     res.render("launchstack", {TITLE: "Launch Stack"});
 });
 
 app.post('/launchstack', function (req, res) {
+    console.log("app.get renders :  LAUNCHSTACK POST REQ");
     console.log(req.body.stackName);
     CFNfile.createSTK(req.body.stackName);
 });
 
 app.get('/outputs', function (req, res) {
-
+    console.log("app.get renders : OUTPUTS");
     try {
         CFNfile.getStackOutputs(function (outdata) {
             res.render("outputs", {outdata, TITLE: "OUTPUTS"});

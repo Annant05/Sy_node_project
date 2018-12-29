@@ -9,7 +9,7 @@ AWS.config.update(awsCredentials);
 // console.log(awsCredentials);
 
 const cloudformation = new AWS.CloudFormation();
-const templateString = JSON.stringify(require("./config/synergy_enviroment"));
+const templateString = JSON.stringify(require("./config/createvpc"));
 // console.log(templateString);
 
 // let stackName = "";
@@ -47,15 +47,16 @@ let mainbody = {
             StackName: mainbody.stackName
         };
         try {
+
             cloudformation.describeStacks(params, function (err, data) {
                 if (err) {
-                    console.log(err, err.stack)
+                    // console.log(err, err.stack);
+                    console.log("callback = null");
                     callback(null);
                 }
 
                 // an error occurred
-            else
-                {
+                else {
                     // noinspection UnnecessaryLocalVariableJS
                     let outputs = (data['Stacks'][0])['Outputs'];
                     callback(outputs);
