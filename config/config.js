@@ -8,8 +8,8 @@ const awsCredentialConfig = {
       accessKeyId and secretAccessKey defaults can be used while using the downloadable version of DynamoDB.
       For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
     */
-    accessKeyId: "AKIAICD52AKI4H7NZFRQ",
-    secretAccessKey: "Cmt95Rn83VqMxREuIEI3brGH8G/oTi0rlR0Rwwtt"
+    // accessKeyId: "fake",
+    // secretAccessKey: "fake"
 };
 
 module.exports = {

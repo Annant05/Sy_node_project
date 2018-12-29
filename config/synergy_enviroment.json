@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Synergy template with Load balancer ,2 web servers and 1 db server  in a vpc "
+  "Description": "Synergy template with Load balancer ,2 web servers and 1 db server  in a vpc ",
 
   "Parameters": {},
   "Conditions" : {
@@ -772,6 +772,6 @@
       "Value":  { "Fn::Join": ["",["http://",{"Fn::GetAtt" :["ApplicationLoadBalancerELB" , "DNSName" ]}]]}
     }
 
-  },
+  }
 
 }
