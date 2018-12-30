@@ -6,7 +6,6 @@ $(function () {
         const stackName = $("#stackName").val();
         // setInterval(300);
         console.log(stackName);
-        alert("Your stack" + stackName + " has been launched!");
         $.ajax({
             url: '/launchstack',
             method: 'POST',
@@ -17,6 +16,7 @@ $(function () {
             //     var $item = response.items[0];
             //     $(".m_stud_fullname").text($item.name + " " + $item.stud_last_name);
             // }
-        });
+        }).done(alert(`Your stack ${stackName} has been launched!`));
+
     });
 });

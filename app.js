@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function (req, res) {
-    console.log("app.get renders : INDEX" );
+    console.log("app.get renders : INDEX");
     res.render('index', {TITLE: "Synergy"});
 });
 
@@ -35,7 +35,7 @@ app.get('/index', function (req, res) {
 
 
 app.get('/coming', function (req, res) {
-    console.log("app.get renders : COMING" );
+    console.log("app.get renders : COMING");
     res.render('coming', {TITLE: "Synergy"});
 });
 
@@ -70,9 +70,17 @@ app.post('/launchstack', function (req, res) {
 
 app.get('/outputs', function (req, res) {
     console.log("app.get renders : OUTPUTS");
+    res.render("outputs", {TITLE: "OUTPUTS"});
+});
+
+app.post('/outputs', function (req, res) {
+    console.log("app.post return data to ajax : OUTPUTS");
+
     try {
         CFNfile.getStackOutputs(function (outdata) {
-            res.render("outputs", {outdata, TITLE: "OUTPUTS"});
+            if (outdata) console.log("Sending DATA " + JSON.stringify(outdata));
+            else outdata = null;
+            res.send({outdata: outdata});
         });
     } catch (e) {
         res.send("error");

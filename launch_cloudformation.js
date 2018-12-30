@@ -18,7 +18,7 @@ let mainbody = {
     stackName: "",
 
     createSTK: function (stackName) {
-        mainbody.stackName = stackName;
+        mainbody.stackName = 'vpcStack';
 
         const params = {
             StackName: mainbody.stackName, /* required */
@@ -64,9 +64,7 @@ let mainbody = {
             });
         } catch (e) {
             console.log("Eroor in Describe" + JSON.stringify(e));
-            callback(
-                null
-            );
+            callback(null);
         }
     }
 
